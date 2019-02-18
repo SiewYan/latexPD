@@ -1,0 +1,190 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[xcolor=dvipsnames,compress]{beamer}
+
+%%%%%%
+% Use theme & color
+\usetheme{Boadilla}
+%\usecolortheme{whale}
+\definecolor{maroon}{rgb}{0.5, 0.0, 0.0}
+\usecolortheme[named=maroon]{structure}
+
+%% General document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{cancel}
+%\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{bibentry}
+\usepackage{booktabs}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{epstopdf}
+\usepackage{color}
+\usepackage{marvosym}
+\usepackage{tikz}
+\usepackage{tipa}
+\usepackage{pgfgantt}
+\usepackage{ amssymb }
+\usepackage[UKenglish]{isodate}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=red,
+}
+
+\parskip0pt
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%for logo
+%\pgfdeclareimage[width=\paperwidth]{bgd}{bgd}
+\pgfdeclareimage[width=.18\paperwidth]{ncpp-logo}{pics/Logo/ncpp.jpg}
+\pgfdeclareimage[width=.1\paperwidth]{IIS-logo}{pics/Logo/IIS.jpg}
+\pgfdeclareimage[width=.13\paperwidth]{padova-logo}{pics/Logo/padova.png}
+\pgfdeclareimage[width=.1\paperwidth]{sprace-logo}{pics/Logo/SPRACE.png}
+\pgfdeclareimage[width=.11\paperwidth]{texes-logo}{pics/Logo/TexesTech.jpg}
+\pgfdeclareimage[width=.09\paperwidth]{lpcdm-logo}{pics/Logo/lpcdm_logo.png}
+\pgfdeclareimage[width=.11\paperwidth]{UCRS-logo}{pics/Logo/UCRS.png}
+\pgfdeclareimage[width=.11\paperwidth]{fnal-logo}{pics/Logo/Fermilab.png}
+\pgfdeclareimage[width=.11\paperwidth]{UADP-logo}{pics/Logo/UADP.png}
+\pgfdeclareimage[width=.22\paperwidth]{infn-logo}{pics/Logo/infn.png}
+\pgfdeclareimage[width=.12\paperwidth]{SNU}{pics/Logo/SNU.jpg}
+
+\addtobeamertemplate{title page}{\vskip-5pt}{\vfill\centering% controlling the postion of first slide    
+\pgfpathrectangle{\pgfpoint{0pt}{0pt}}{\pgfpoint{\textwidth}{-1pt}}
+\vskip-14pt
+\begin{figure}
+\centering
+\begin{minipage}[b]{0.15\linewidth}
+\centering
+\pgfuseimage{padova-logo}
+\end{minipage}
+\hspace{0.1mm}
+\begin{minipage}[b]{0.15\linewidth}
+\centering
+\pgfuseimage{infn-logo}
+\end{minipage}
+\end{figure}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Padova-CMS internal]{Same Sign Dilepton Analysis Exercise on \\ 2016 dataset}
+
+\author[ \textbf{S.Y.Hoh}]
+{
+	J.~Pazzini\inst{1}
+	\and
+	M.~Zanetti\inst{1}
+	\and
+	P.~Lujan\inst{1}
+	\and
+	\underline{\textbf{S-Y.~Hoh\inst{1}}}
+	\and
+	U.~Gasparini\inst{1}
+}
+
+\institute[University of Padova]
+{
+\inst{1}{University of Padova}
+}
+
+
+\date[\today]
+{Padova-CMS internal \\  \today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamercolor*{frametitle}{parent=palette tertiary}
+\setbeamercolor*{titlelike}{parent=palette tertiary}
+\setbeamersize{sidebar width left=0cm}
+\setbeamersize{sidebar width right=0cm}
+\beamerboxesdeclarecolorscheme{alert}{red}{red!15!averagebackgroundcolor}
+\setbeamertemplate{section in toc}[ball unnumbered]
+
+%%%%%%%%%%%%%%%%
+\beamertemplatenavigationsymbolsempty
+%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{\scshape Introduction}
+
+%%%
+\begin{frame}
+\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Table of contents}
+\tableofcontents
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\scshape Introduction}
+\begin{frame}{Introduction}
+\begin{itemize}
+\item{The three signal samples close to VH topology in NANOAOD format are studied: }
+\begin{itemize}
+\item{\textcolor{blue}{HW}(minus/plus)J\_\textcolor{blue}{HToWW}\_M125\_13TeV\_powheg\_pythia8-v1}
+\item{\textcolor{blue}{HW}(minus/plus)J\_\textcolor{blue}{HToWWTo2L2Nu}\_\textcolor{blue}{WToLNu}\_M125\_13TeV\_powheg\_pythia8-v1}
+\item{\textcolor{blue}{VHToNonbb}\_M125\_13TeV\_amcatnloFXFX\_madspin\_pythia8}
+\end{itemize}
+\item{The respective final state kinematics were studied on signal samples.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Signal Sample Profiles}
+\begin{itemize}
+\item{Inclusive HW(plus/minus)J\_HToWW\_M125:}
+\begin{itemize}
+\item{Nevent: 299997/299799}
+\item{xSec (pb): 0.851/0.5331}
+\item{lumi (pb-1): 1039.0/1669.0}
+\item{Prep-Id: HIG-RunIISummer16MiniAODv2-(00128/00126)}
+\end{itemize}
+\item{Fully leptonic HW(plus/minus)J\_HToWWTo2L2Nu\_WToLNu\_M125:}
+\begin{itemize}
+\item{Nevent: 299795/299994}
+\item{xSec (pb): 0.851/0.5331}
+\item{lumi (pb-1): 1040.0/1674.0}
+\item{Prep-Id: HIG-RunIISummer16MiniAODv2-(00037/00066)}
+\end{itemize}
+\item{Inclusive VHToNonbb\_M125}
+\begin{itemize}
+\item{Nevent: 1007898}
+\item{xSec (pb): 2.505/2.127	}
+\item{lumi (pb-1): 97.78	/97.82}
+\item{Prep-Id: SUS-RunII(Fall17/Summer16)MiniAODv2-(00008/00168)}
+\end{itemize}
+\end{itemize}
+\href{https://cms-gen-dev.cern.ch/xsdb/?columns=67108863&currentPage=0&ordDirection=-1&ordFieldName=cross_section&pageSize=10&searchQuery=process_name\%20\%3D\%20HWplusJ_HToWWTo2L2Nu_WToLNu_M125_13TeV_powheg_pythia8\%20\%7C\%7C\%20process_name\%20\%3D\%20HWminusJ_HToWWTo2L2Nu_WToLNu_M125_13TeV_powheg_pythia8\%20\%7C\%7C\%20process_name\%20\%3D\%20HWminusJ_HToWW_M125_13TeV_powheg_pythia8\%20\%7C\%7C\%20process_name\%20\%3D\%20HWplusJ_HToWW_M125_13TeV_powheg_pythia8\%20\%7C\%7C\%20process_name\%20\%3D\%20VHToNonbb_M125_13TeV_amcatnloFXFX_madspin_pythia8}{Link: Taken from XSDB}
+\end{frame}
+
+\begin{frame}{Kinematics}
+show gen and reco level kinematics plots
+\end{frame}
+
+\begin{frame}{Signal Acceptance}
+
+\end{frame}
+
+\section{\scshape Backup}
+\begin{frame}
+\centering
+\Huge{Backup}
+\end{frame}
+
+\begin{frame}{CMS Recorded Integrated luminosity by year}
+\begin{itemize}
+\item{2016 dataset: 35508.421 pb-1}
+\item{2017 dataset: 41860.080 pb-1}
+\item{2018 dataset: 58826.847 pb-1}
+\end{itemize}
+\end{frame}
+
+\end{document}
